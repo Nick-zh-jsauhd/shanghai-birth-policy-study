@@ -11,7 +11,7 @@ from matplotlib import font_manager
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FINAL = os.path.join(ROOT, "data", "final")
-OUT        = os.path.join(ROOT, "outputs")
+OUT        = os.path.join(ROOT, "outputs", "fse", "main")
 CFG        = os.path.join(ROOT, "config", "config.json")
 os.makedirs(OUT, exist_ok=True)
 

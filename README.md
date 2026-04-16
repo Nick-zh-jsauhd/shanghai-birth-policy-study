@@ -39,6 +39,13 @@ This repository is organized around the three-stage research workflow.
 - `cost_mapping/model3_stage2_cost_mapping.py`
   Maps experimental policy effects to monetary costs under the project assumptions.
 
+FSE itself is internally organized as:
+
+- `fse/main.py` for the core experiment layer
+- `fse/preprocessing/` for data preparation
+- `fse/estimation/` for effect estimation
+- `fse/cost_mapping/` for optimization-facing cost conversion
+
 ### fsQCA
 
 - `fsqca/main.py`

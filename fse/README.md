@@ -26,10 +26,17 @@
 
 ## Workflow inside FSE
 
-1. `main.py` provides the first-stage experimental core.
+1. `main.py` provides the first-stage experimental core and broad analytical outputs.
 2. `preprocessing/` prepares cleaned analytical inputs.
 3. `estimation/` converts cleaned inputs into scenario-level effects.
 4. `cost_mapping/` converts those effects into optimization-ready cost tables.
+
+## Suggested code placement
+
+- Put new first-stage core experiment scripts in `fse/`
+- Put raw-data cleaning and reshaping logic in `fse/preprocessing/`
+- Put fixed-effects estimation, robustness checks, and estimation-side plots in `fse/estimation/`
+- Put cost conversion and scenario-to-budget mapping logic in `fse/cost_mapping/`
 
 ## Data note
 
