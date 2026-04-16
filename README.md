@@ -15,6 +15,7 @@ This repository is organized around the three-stage research workflow.
 
 ```text
 .
+|-- ARCHITECTURE.md
 |-- fse/
 |   |-- main.py
 |   |-- preprocessing/
@@ -66,8 +67,13 @@ This repository is code-only by design.
 - Local execution still depends on project-specific input files that remain outside Git tracking.
 - The scripts preserve their original logic and file naming, so some local path assumptions may still need adaptation before running in a fresh environment.
 
+## Where New Code Should Go
+
+Use [`ARCHITECTURE.md`](ARCHITECTURE.md) as the placement guide for future uploads. It maps every tracked Python file to its analytical stage and explains where new scripts should be added.
+
 ## Recommended reading order
 
 1. Start from `fse/README.md`
 2. Continue to `fsqca/README.md`
 3. Finish with `optimization/README.md`
+4. Use `ARCHITECTURE.md` when extending the repository

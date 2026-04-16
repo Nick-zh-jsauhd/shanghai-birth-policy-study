@@ -17,6 +17,12 @@ This module contains the final policy optimization stage of the study.
   - `model3_visualization_suite_v3.py`
 - Role: renders optimization outputs into interpretable presentation figures.
 
+## Suggested code placement
+
+- Put optimization logic, allocation solvers, frontier construction, and budget-search code in `solver/`.
+- Put chart-generation and presentation-facing scripts in `visualization/`.
+- Do not place first-stage experimental analysis or fsQCA logic inside `optimization/`.
+
 ## Inputs and outputs
 
 - Expected inputs: scenario-effect and cost outputs produced earlier in `fse/`.

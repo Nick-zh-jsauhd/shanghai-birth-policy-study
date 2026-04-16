@@ -7,6 +7,10 @@ This module contains the second-stage fsQCA analysis layer that sits between `fs
 - `main.py`
   Runs calibration, necessary-condition checks, truth-table construction, logical minimization, sensitivity analysis, recipe interpretation, and fsQCA-oriented plotting.
 
+## Suggested code placement
+
+Put future code in `fsqca/` only when it belongs to the second-stage configurational analysis itself, rather than the first-stage experiment or the final optimization workflow.
+
 ## Inputs and outputs
 
 - Expected inputs: scenario-level analytical results produced by `fse/`.
