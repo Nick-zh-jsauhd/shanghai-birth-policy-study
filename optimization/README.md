@@ -19,9 +19,9 @@ This module contains the final policy optimization stage of the study.
 
 ## Inputs and outputs
 
-- Expected inputs: scenario-effect and cost outputs produced earlier in the workflow.
+- Expected inputs: scenario-effect and cost outputs produced earlier in `fse/`.
 - Expected outputs: optimization summaries, allocation comparisons, and figure-ready result artifacts.
 
 ## Workflow position
 
-`optimization/` is the final analytical module and depends on outputs from `scenario_experiments/`. In the project narrative it follows both the scenario experiment analysis and the fsQCA interpretation layer.
+`optimization/` is the final analytical module and depends on outputs from `fse/`. In the project narrative it follows both the FSE stage and the fsQCA interpretation layer.

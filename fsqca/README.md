@@ -1,6 +1,6 @@
 # fsQCA
 
-This module contains the fsQCA analysis layer that sits between the scenario-experiment pipeline and the final optimization stage.
+This module contains the second-stage fsQCA analysis layer that sits between `fse/` and the final optimization stage.
 
 ## Main entry
 
@@ -9,11 +9,11 @@ This module contains the fsQCA analysis layer that sits between the scenario-exp
 
 ## Inputs and outputs
 
-- Expected inputs: scenario-level analytical results produced by the earlier experimental pipeline.
+- Expected inputs: scenario-level analytical results produced by `fse/`.
 - Expected outputs: fsQCA solution summaries, recipe mappings, and explanatory figures used in interpretation.
 
 ## Position in the workflow
 
-`fsqca/` should be read after `scenario_experiments/` and before `optimization/`.
+`fsqca/` should be read after `fse/` and before `optimization/`.
 
 The repository keeps only the analysis code. Any local configuration files, generated tables, or exported figures remain untracked.

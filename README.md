@@ -1,21 +1,22 @@
 # Shanghai Birth Policy Study
 
-This repository is organized around the research workflow rather than the original internal stage numbering.
+This repository is organized around the three-stage research workflow.
 
 ## Research workflow
 
-1. `scenario_experiments/`
-   Generates scenario-level inputs, fixed-effects estimates, and policy cost mappings.
+1. `fse/`
+   Runs the first-stage family-scenario experiment and its downstream preprocessing, estimation, and cost-mapping steps.
 2. `fsqca/`
-   Runs the fsQCA analysis on scenario-based experimental outputs.
+   Runs the second-stage fsQCA analysis on outputs from `fse/`.
 3. `optimization/`
-   Performs policy optimization and visualization based on previous analytical results.
+   Performs the final-stage policy optimization and visualization based on upstream analytical results.
 
 ## Repository structure
 
 ```text
 .
-|-- scenario_experiments/
+|-- fse/
+|   |-- main.py
 |   |-- preprocessing/
 |   |-- estimation/
 |   `-- cost_mapping/
@@ -27,10 +28,12 @@ This repository is organized around the research workflow rather than the origin
 
 ## Code modules
 
-### Scenario Experiments
+### FSE
 
+- `main.py`
+  Runs the first-stage experimental core of the project.
 - `preprocessing/model3_stage0_data_processing.py`
-  Cleans and reshapes the scenario experiment data used by downstream modules.
+  Cleans and reshapes FSE data used by downstream modules.
 - `estimation/model3_stage1_fe_estimation.py`
   Estimates scenario effects from the Zhejiang sample.
 - `cost_mapping/model3_stage2_cost_mapping.py`
@@ -58,6 +61,6 @@ This repository is code-only by design.
 
 ## Recommended reading order
 
-1. Start from `scenario_experiments/README.md`
+1. Start from `fse/README.md`
 2. Continue to `fsqca/README.md`
 3. Finish with `optimization/README.md`

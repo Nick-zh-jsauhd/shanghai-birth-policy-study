@@ -23,7 +23,7 @@ from matplotlib.lines import Line2D
 
 
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 
 
 PALETTE = {
@@ -122,10 +122,10 @@ def resolve_input_dir(path: str, fallback_dirs: List[str] | None = None) -> str:
 
 
 def load_inputs(stage1_dir: str, stage3_dir: str) -> Dict[str, object]:
-    stage1_dir = resolve_input_dir(stage1_dir, fallback_dirs=["stage1_fixed_estimation"])
+    stage1_dir = resolve_input_dir(stage1_dir, fallback_dirs=["outputs/fse/estimation", "fse/estimation"])
     stage3_dir = resolve_input_dir(
         stage3_dir,
-        fallback_dirs=["stage3_optmization", "stage3_optimization"],
+        fallback_dirs=["outputs/optimization/solver", "optimization/solver"],
     )
 
     assignment_detail = {
@@ -860,17 +860,17 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--stage1-dir",
-        default=os.path.join(PROJECT_ROOT, "stage1_fixed_estimation"),
-        help="Stage 1 results directory",
+        default=os.path.join(PROJECT_ROOT, "outputs", "fse", "estimation"),
+        help="FSE estimation results directory",
     )
     parser.add_argument(
         "--stage3-dir",
-        default=SCRIPT_DIR,
-        help="Stage 3 results directory",
+        default=os.path.join(PROJECT_ROOT, "outputs", "optimization", "solver"),
+        help="Optimization solver results directory",
     )
     parser.add_argument(
         "--output-dir",
-        default=os.path.join(PROJECT_ROOT, "outputs_v3"),
+        default=os.path.join(PROJECT_ROOT, "outputs", "optimization", "visualization_v3"),
         help="Output directory for v3 presentation assets",
     )
     args = parser.parse_args()

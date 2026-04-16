@@ -3,9 +3,15 @@ import numpy as np
 import json
 import os
 
-def build_stage2(stage0_dir='/mnt/data/model3_stage0',
-                 stage1_dir='/mnt/data/model3_stage1',
-                 outdir='/mnt/data/model3_stage2'):
+SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
+REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
+DEFAULT_STAGE0_DIR = os.path.join(REPO_ROOT, 'outputs', 'fse', 'preprocessing')
+DEFAULT_STAGE1_DIR = os.path.join(REPO_ROOT, 'outputs', 'fse', 'estimation')
+DEFAULT_OUTDIR = os.path.join(REPO_ROOT, 'outputs', 'fse', 'cost_mapping')
+
+def build_stage2(stage0_dir=DEFAULT_STAGE0_DIR,
+                 stage1_dir=DEFAULT_STAGE1_DIR,
+                 outdir=DEFAULT_OUTDIR):
     os.makedirs(outdir, exist_ok=True)
 
     weights = pd.read_csv(f'{stage0_dir}/model3_zhejiang_group_weights.csv')

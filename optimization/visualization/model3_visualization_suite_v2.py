@@ -13,8 +13,8 @@ Generate:
     Figure 4 公平—效率影响平面（可选，v2 为相对变化平面）
 
 Default data inputs:
-    /mnt/data/model3_stage2
-    /mnt/data/model3_stage3
+    outputs/fse/cost_mapping
+    outputs/optimization/solver
 
 Outputs:
     <output_dir>/tables/*.png
@@ -40,7 +40,7 @@ from matplotlib.ticker import FuncFormatter
 
 
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 
 
 PALETTE = {
@@ -266,10 +266,10 @@ def render_table_png(
 
 
 def load_inputs(stage2_dir: str, stage3_dir: str) -> Dict[str, pd.DataFrame]:
-    stage2_dir = resolve_input_dir(stage2_dir, fallback_dirs=["stage2_cost_mapping"])
+    stage2_dir = resolve_input_dir(stage2_dir, fallback_dirs=["outputs/fse/cost_mapping", "fse/cost_mapping"])
     stage3_dir = resolve_input_dir(
         stage3_dir,
-        fallback_dirs=["stage3_optmization", "stage3_optimization"],
+        fallback_dirs=["outputs/optimization/solver", "optimization/solver"],
     )
 
     return {
@@ -702,18 +702,18 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--stage2-dir",
-        default=os.path.join(PROJECT_ROOT, "stage2_cost_mapping"),
-        help="Stage 2 results directory",
+        default=os.path.join(PROJECT_ROOT, "outputs", "fse", "cost_mapping"),
+        help="FSE cost-mapping results directory",
     )
     parser.add_argument(
         "--stage3-dir",
-        default=SCRIPT_DIR,
-        help="Stage 3 results directory",
+        default=os.path.join(PROJECT_ROOT, "outputs", "optimization", "solver"),
+        help="Optimization solver results directory",
     )
     parser.add_argument(
         "--output-dir",
-        default=os.path.join(PROJECT_ROOT, "outputs"),
-        help="Output directory",
+        default=os.path.join(PROJECT_ROOT, "outputs", "optimization", "visualization_v2"),
+        help="Visualization output directory",
     )
     parser.add_argument("--skip-optional-fairness", action="store_true", help="Skip Figure 4")
     args = parser.parse_args()

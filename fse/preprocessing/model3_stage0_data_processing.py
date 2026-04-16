@@ -1,13 +1,26 @@
-
 import pandas as pd
 import numpy as np
 import os
 
-outdir = "./model3_stage0"
+SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
+REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
+DATA_FINAL = os.path.join(REPO_ROOT, "data", "final")
+outdir = os.path.join(REPO_ROOT, "outputs", "fse", "preprocessing")
 os.makedirs(outdir, exist_ok=True)
 
-long = pd.read_csv("clean_fse_long_main.csv")
-wide = pd.read_csv("clean_wide_main.csv")
+def resolve_input_file(filename):
+    candidates = [
+        os.path.join(DATA_FINAL, filename),
+        os.path.join(SCRIPT_DIR, filename),
+        filename,
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return candidates[0]
+
+long = pd.read_csv(resolve_input_file("clean_fse_long_main.csv"))
+wide = pd.read_csv(resolve_input_file("clean_wide_main.csv"))
 
 req = ['rid','version','t','scene_code','P','I','G','S','L','C','rating','prov','city']
 long_rowvalid = long.dropna(subset=req).copy()

@@ -5,8 +5,10 @@ import pandas as pd
 from scipy import sparse
 from scipy.sparse.linalg import lsqr
 
-BASE = '/mnt/data/model3_stage0'
-OUT = '/mnt/data/model3_stage1'
+SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
+REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
+BASE = os.path.join(REPO_ROOT, 'outputs', 'fse', 'preprocessing')
+OUT = os.path.join(REPO_ROOT, 'outputs', 'fse', 'estimation')
 os.makedirs(OUT, exist_ok=True)
 
 MAIN_FILE = os.path.join(BASE, 'model3_long_balanced_zhejiang.csv')

@@ -2,8 +2,10 @@ import pandas as pd
 import numpy as np
 import os
 
-OUTDIR = "/mnt/data/model3_stage3"
-INPUT = "/mnt/data/model3_stage2/model3_stage2_cost_216_main.csv"
+SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
+REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
+OUTDIR = os.path.join(REPO_ROOT, "outputs", "optimization", "solver")
+INPUT = os.path.join(REPO_ROOT, "outputs", "fse", "cost_mapping", "model3_stage2_cost_216_main.csv")
 
 os.makedirs(OUTDIR, exist_ok=True)
 
