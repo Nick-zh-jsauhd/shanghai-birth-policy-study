@@ -16,6 +16,12 @@ wheels/
 # Generated outputs
 outputs/
 outputs_v3/
+figures/
+tables/
+*.png
+*.pdf
+*.svg
+*.tex
 
 # Data and non-code artifacts kept locally only
 *.csv
