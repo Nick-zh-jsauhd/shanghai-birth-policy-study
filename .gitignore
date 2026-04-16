@@ -1,0 +1,25 @@
+# Python cache and virtual envs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Build / package artifacts
+*.egg-info/
+build/
+dist/
+
+# Local dependency wheels
+wheels/
+
+# Generated outputs
+outputs/
+outputs_v3/
+
+# Notebook and editor noise
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

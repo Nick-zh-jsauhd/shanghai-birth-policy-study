@@ -1,0 +1,21 @@
+{
+  "nobs": 5022,
+  "nparams": 911,
+  "r2": 0.6094444543907511,
+  "adj_r2": 0.5229921200428026,
+  "rmse": 1.3481113870866155,
+  "mae": 1.0186178455037158,
+  "istop": 2,
+  "iterations": 86,
+  "normr": 95.53535709268427,
+  "normar": 95.53535709268427,
+  "conda": 7006.805551256702,
+  "n_unique_rid": 837,
+  "n_unique_scene_observed": 167,
+  "n_full_grid": 216,
+  "n_unobserved_grid_cells": 49,
+  "pred_mu_min": 6.155491309140284,
+  "pred_mu_max": 8.40081231336468,
+  "pred_delta_min": -0.3101630536712632,
+  "pred_delta_max": 1.3827130659770503
+}
